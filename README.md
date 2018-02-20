@@ -1,5 +1,11 @@
 # commonmark-loader
-A Webpack loader for Markdown rendering using Commonmark.
+A Webpack loader for Markdown rendering using [Commonmark](https://github.com/commonmark/commonmark.js).
+
+[![](https://img.shields.io/npm/v/commonmark-loader.svg)](https://www.npmjs.com/package/commonmark-loader)
+[![](https://img.shields.io/npm/dm/commonmark-loader.svg)](https://www.npmjs.com/package/commonmark-loader)
+[![Dependency Status](https://david-dm.org/peerigon/commonmark-loader.svg)](https://david-dm.org/peerigon/commonmark-loader)
+[![Build Status](https://travis-ci.org/peerigon/commonmark-loader.svg?branch=master)](https://travis-ci.org/peerigon/commonmark-loader)
+
 
 ## Installation
 ~~~
