@@ -10,9 +10,9 @@ var commonmark = require('commonmark');
  * @returns {string}
  */
 function addWrapper (html, wrapper) {
-    var nodeName = html.match(/^<(\S*).*>$/)[1];
+    var wrapperNodeName = wrapper.match(/^<(\S*).*>$/)[1];
 
-    return wrapper + html + '</' + nodeName + '>\n';
+    return wrapper + html + '</' + wrapperNodeName + '>\n';
 }
 
 
