@@ -1,0 +1,31 @@
+{
+  "name": "commonmark-loader",
+  "version": "1.0.0",
+  "description": "A Webpack loader for Markdown rendering using Commonmark.",
+  "main": "index.js",
+  "dependencies": {
+    "commonmark": "^0.28.1",
+    "loader-utils": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexgrozav/commonmark-loader.git"
+  },
+  "keywords": [
+    "webpack",
+    "markdown",
+    "commonmark",
+    "loader",
+    "vue"
+  ],
+  "author": "Alex Grozav <alex@grozav.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alexgrozav/commonmark-loader/issues"
+  },
+  "homepage": "https://github.com/alexgrozav/commonmark-loader#readme"
+}
