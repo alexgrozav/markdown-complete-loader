@@ -46,6 +46,7 @@ module.exports = {
                 test: /\.md$/,
                 loader: "commonmark-loader",
                 options: {
+                    wrapper: '<section>',
                     sourcepos: true,
                     safe: true,
                     smart: true,
