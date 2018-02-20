@@ -15,16 +15,16 @@ npm install markdown-loader
 Use the following loader configuration in your `webpack.config.js` file (webpack 2.x and later):
 
 ~~~
-return {
+module.exports = {
     module: {
         rules: [
             {
                 test: /\.md$/,
-                use: "commonmark-loader"
+                loader: "commonmark-loader"
             }
         ]
     }
-}
+};
 ~~~
 
 ## Options
@@ -39,25 +39,23 @@ All commonmark options are available, together with some loader specific options
 - **esc**: specify a function to be used to escape strings.
 
 ~~~
-return {
+module.exports = {
     module: {
-        rules: [{
+        rules: [
+            {
                 test: /\.md$/,
-                use: [
-                    {
-                        loader: "commonmark-loader",
-                        options: {
-                            sourcepos: true,
-                            safe: true,
-                            smart: true,
-                            softbreak: '<br />',
-                            esc: function(str) { return str; }
-                        }
-                    }
-                ]
-            }]
+                loader: "commonmark-loader",
+                options: {
+                    sourcepos: true,
+                    safe: true,
+                    smart: true,
+                    softbreak: '<br />',
+                    esc: function(str) { return str; }
+                }
+            }
+        ]
     }
-}
+};
 ~~~
 
 ### Vue Loader Usage

@@ -1,6 +1,6 @@
 {
   "name": "commonmark-loader",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Webpack loader for Markdown rendering using Commonmark.",
   "main": "index.js",
   "dependencies": {
