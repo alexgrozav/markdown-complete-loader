@@ -8,7 +8,7 @@ A Webpack loader for Markdown rendering using [Commonmark](https://github.com/co
 
 ## Installation
 ~~~
-npm install --save-dev markdown-loader
+npm install --save-dev commonmark-loader
 ~~~
 
 ## Usage
