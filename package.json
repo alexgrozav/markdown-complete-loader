@@ -1,11 +1,11 @@
 {
-  "name": "commonmark-loader",
-  "version": "1.0.5",
-  "description": "A Webpack loader for Markdown rendering using Commonmark.",
+  "name": "markdown-complete-loader",
+  "version": "1.0.0",
+  "description": "A Webpack loader for Markdown rendering using MarkdownIt, compatible with Vue templates.",
   "main": "index.js",
   "dependencies": {
-    "commonmark": "^0.28.1",
-    "loader-utils": "^1.1.0"
+    "loader-utils": "^1.1.0",
+    "markdown-it": "^8.4.1"
   },
   "devDependencies": {},
   "scripts": {
@@ -13,19 +13,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alexgrozav/commonmark-loader.git"
+    "url": "git+https://github.com/alexgrozav/markdown-complete-loader.git"
   },
   "keywords": [
     "webpack",
     "markdown",
     "commonmark",
+    "markdown-it",
     "loader",
     "vue"
   ],
   "author": "Alex Grozav <alex@grozav.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/alexgrozav/commonmark-loader/issues"
+    "url": "https://github.com/alexgrozav/markdown-complete-loader/issues"
   },
-  "homepage": "https://github.com/alexgrozav/commonmark-loader#readme"
+  "homepage": "https://github.com/alexgrozav/markdown-complete-loader#readme"
 }
