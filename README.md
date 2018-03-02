@@ -56,7 +56,7 @@ module.exports = {
                     html: false,
                     xhtmlOut: false,
                     breaks: false,
-                    langPrefix: '-language',
+                    langPrefix: 'language-',
                     linkify: false,
                     typographer: false,
                     quotes: '“”‘’',
