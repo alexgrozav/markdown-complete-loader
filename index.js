@@ -26,7 +26,7 @@ module.exports = function (source) {
 
     var params = loaderUtils.getOptions(this);
     var options = Object.assign({}, defaults, params);
-    var md = new MarkdownIt(preset, options);
+    var md = new MarkdownIt(options.preset, options);
 
     if (options.onInit) {
       md = options.onInit(md);
