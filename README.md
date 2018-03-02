@@ -1,14 +1,14 @@
-# commonmark-loader
-A Webpack loader for Markdown rendering using [Commonmark](https://github.com/commonmark/commonmark.js).
+# markdown-complete-loader
+A Webpack loader for Markdown rendering using [markdown-it](https://github.com/markdown-it/markdown-it).
 
-[![](https://img.shields.io/npm/v/commonmark-loader.svg)](https://www.npmjs.com/package/commonmark-loader)
-[![](https://img.shields.io/npm/dm/commonmark-loader.svg)](https://www.npmjs.com/package/commonmark-loader)
-[![Dependency Status](https://david-dm.org/peerigon/commonmark-loader.svg)](https://david-dm.org/alexgrozav/commonmark-loader)
+[![](https://img.shields.io/npm/v/markdown-complete-loader.svg)](https://www.npmjs.com/package/markdown-complete-loader)
+[![](https://img.shields.io/npm/dm/markdown-complete-loader.svg)](https://www.npmjs.com/package/markdown-complete-loader)
+[![Dependency Status](https://david-dm.org/peerigon/markdown-complete-loader.svg)](https://david-dm.org/alexgrozav/markdown-complete-loader)
 
 
 ## Installation
 ~~~
-npm install --save-dev commonmark-loader
+npm install --save-dev markdown-complete-loader
 ~~~
 
 ## Usage
@@ -20,7 +20,7 @@ module.exports = {
         rules: [
             {
                 test: /\.md$/,
-                loader: "commonmark-loader"
+                loader: "markdown-complete-loader"
             }
         ]
     }
@@ -29,29 +29,43 @@ module.exports = {
 
 ## Options
 
-All commonmark options are available, together with some loader specific options.
+All markdown-it options are available, together with some loader specific options.
 
-- **wrapper**: a html node such as `<section>` to be used for wrapping the rendered output. This feature is provided for integration with single file components, such as Vue's. 
-- **sourcepos**: if `true`, source position information for block-level elements will be rendered in the `data-sourcepos` attribute (for HTML) or the `sourcepos` attribute (for XML).
-- **smart**: if `true`, straight quotes `'"` will be made curly, `--` will be changed to an en dash, `---` will be changed to an em dash, and `...` will be changed to ellipses.
-- **safe**: if `true`, raw HTML will not be passed through to HTML output (it will be replaced by comments), and potentially unsafe URLs in links and images (those beginning with `javascript:`, `vbscript:`, `file:`, and with a few exceptions `data:`) will be replaced with empty strings.
-- **softbreak**: specify raw string to be used for a softbreak.
-- **esc**: specify a function to be used to escape strings.
+- **wrapper**: a html node such as `<section>` to be used for wrapping the rendered output. This feature is provided for integration with single file components, such as Vue's.
+- **onInit**: a callback function that allows you to manipulate the markdown-it instance after it has been initialized.
+- **onRender**: a callback function that allows you to manipulate the returned HTML string after it has been rendered.
+- **html**: if `true`, it enables HTML tags to be used in the source
+- **xhtmlOut**: if `true`, it uses '/' to close single tags (<br />). This is only for full CommonMark compatibility.
+- **breaks**: if `true`, it converts '\n' in paragraphs into <br>
+- **langPrefix**: a string such as `'language-'` used for CSS language prefix for fenced blocks. Can be useful for external highlighters.
+- **linkify**: if `true`, it autoconverts URL-like text to links
+- **typographer**: if `true`, it enables some language-neutral replacement + quotes beautification
+- **quotes**: a string such as `'“”‘’'`, specifying double + single quotes replacement pairs, when typographer enabled, and smartquotes on. Could be either a String or an Array. For example, you can use `'«»„“'` for Russian, `'„“‚‘'` for German, and `['«\xA0', '\xA0»', '‹\xA0', '\xA0›']` for French (including nbsp).
+- **highlight**: a highlighter function. Should return escaped HTML, or '' if the source string is not changed and should be escaped externally. f result starts with `<pre...` internal wrapper is skipped.
 
-~~~
+~~~js
 module.exports = {
     module: {
         rules: [
             {
                 test: /\.md$/,
-                loader: "commonmark-loader",
+                loader: "markdown-complete-loader",
                 options: {
                     wrapper: '<section>',
-                    sourcepos: true,
-                    safe: true,
-                    smart: true,
-                    softbreak: '<br />',
-                    esc: function(str) { return str; }
+                    onInit: function (md) {
+                      return md;
+                    },
+                    onRender: function (result) {
+                      return result;
+                    },
+                    html: false,
+                    xhtmlOut: false,
+                    breaks: false,
+                    langPrefix: '-language',
+                    linkify: false,
+                    typographer: false,
+                    quotes: '“”‘’',
+                    highlight: function (str, lang) { return ''; }
                 }
             }
         ]
@@ -65,7 +79,7 @@ To use it as a Vue template language `<template lang='md'>`, provide the followi
 
 ~~~
 loaders['md'] = {
-    loader: "commonmark-loader"
+    loader: "markdown-complete-loader"
 };
 ~~~
 
