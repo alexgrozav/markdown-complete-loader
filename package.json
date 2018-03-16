@@ -1,6 +1,6 @@
 {
   "name": "markdown-complete-loader",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "A Webpack loader for Markdown rendering using MarkdownIt, compatible with Vue templates.",
   "main": "index.js",
   "dependencies": {

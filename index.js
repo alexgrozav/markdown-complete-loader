@@ -20,20 +20,21 @@ module.exports = function (source) {
 
     var defaults = {
         wrapper: '<section>',
-        preset: 'default',
-        use: []
+        preset: 'default'
     };
-
     var params = loaderUtils.getOptions(this);
-    var options = Object.assign({}, defaults, params);
+    var options = {};
+    if (params.configFile) { options = require(params.configFile); }
+    options = Object.assign({}, defaults, options, params);
+
     var md = new MarkdownIt(options.preset, options);
 
     if (options.onInit) {
       md = options.onInit(md);
     }
 
-    if (options.use) {
-      options.use.forEach((plugin) => {
+    if (options.plugins) {
+      options.plugins.forEach((plugin) => {
         if (!!plugin && plugin.constructor === Array) {
           return md.use(plugin[0], plugin[1]);
         }
